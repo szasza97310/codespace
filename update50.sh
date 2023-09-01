@@ -27,7 +27,7 @@ local=$(cat "/workspaces/$RepositoryName/.devcontainer.json" 2> /dev/null)
 if [ "$remote" != "$local" ] || [ "$tag" != "$issue" ] || [ "$1" == "-f" ] || [ "$1" == "--force" ]; then
 
     # Update JSON
-    echo "$remote" > "/workspaces/$RepositoryName/.devcontainer.json"
+    ec "$remote" > "/workspaces/$RepositoryName/.devcontainer.json"
 
     # Trigger rebuild
     command50 github.codespaces.fullRebuildEnvironment
